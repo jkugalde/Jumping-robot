@@ -13,6 +13,9 @@ class RobotLeg
     ~RobotLeg();
     void motorpins(int pinsA [3], int pinsB [3]);
     void goTo(int x, int y);
+    void calibrateminmax();
+    void setrefs(int refA[2], int refB[2]);
+    void setks(float kA [3], float kB [3]);
     int getPos(int i);
     private:
       LegMotor _M1;

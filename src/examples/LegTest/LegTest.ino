@@ -2,21 +2,42 @@
 #include "RobotLeg.h"
 
 int pinsA[3] = {5,3,A3};
-int pinsB[3] = {9,6,A4};
+int pinsB[3] = {6,9,A4};
+
+float kA[3] = {50,0.2,0};
+float kB[3] = {50,0.2,0};
+
+int refsA[2] = {130,620};
+int refsB[2] = {50,500};
 
 RobotLeg RL1;
 
-void setup() {
-  
-  RL1.motorpins(pinsA,pinsB);
-  Serial.begin(9600);
-  
-  RL1.setrefs();
+int newpos=0;
+int count=85;
+boolean go = false;
+unsigned long timer=0;
+unsigned long sampler=500;
 
+void setup() {
+
+  Serial.begin(9600);
+  RL1.motorpins(pinsA,pinsB);
+  RL1.setks(kA,kB);
+  RL1.setrefs(refsA,refsB);
+  timer=millis();
 }
 
 void loop() {
 
+if(millis()-timer>=sampler){
+  newpos=newpos+count;
+  timer=millis();
+  if(newpos>=85 || newpos<=0){
+  count=-count;
+}
+}
+
+RL1.goTo(newpos,newpos);
 
   
 }

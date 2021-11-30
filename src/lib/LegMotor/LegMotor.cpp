@@ -4,14 +4,15 @@
 LegMotor::LegMotor()
 {
 
-_Kp=1.0;
-_Kd=1.0;
-_Ki=1.0;
+_Kp=0.5;
+_Kd=0.5;
+_Ki=0;
 _ready=true;
 _thI=20;
 _preverror=0;
 _minpos=0;
 _maxpos=1023;
+_ref_0=0;
 
 }
 
@@ -44,10 +45,10 @@ void LegMotor::act(){
 	analogWrite(_pinB,_stateB);
 }
 
-void LegMotor::setk(float Kp, float Kd, float Ki){
-	_Kp=Kp;
-  _Kd=Kd;
-  _Ki=Ki;
+void LegMotor::setk(float k [3]){
+	_Kp=k[0];
+  _Kd=k[1];
+  _Ki=k[2];
 }
 
 void LegMotor::setminmax(int min,int max){
@@ -60,8 +61,39 @@ int LegMotor::limits(int target){
   return target;
 }
 
+int LegMotor::setref0(){
+  float meanval=0;
+  for(int i = 0;i<5000;i++){
+    meanval=meanval+readPot();
+  }
+  _ref_0=int(meanval/5000);
+  return _ref_0;
+}
+
+int LegMotor::setref90(){
+  float meanval=0;
+  for(int i = 0;i<5000;i++){
+    meanval=meanval+readPot();
+  }
+  _ref_90=int(meanval/5000);
+  return _ref_90;
+}
+
+float LegMotor::setKgrad(){
+  _kgrad=float((_ref_90-_ref_0)/90.0);
+  return _kgrad;
+}
+
+void LegMotor::setrefs(int refs[2]){
+  _ref_0=refs[0];
+  _ref_90=refs[1];
+  setKgrad();
+}
+
 void LegMotor::goTo(int target, int maxvel){
 
+
+  target=int(_kgrad*target)+_ref_0;
   int pos = readPot();
   target=limits(target);
   int error = target-pos;
