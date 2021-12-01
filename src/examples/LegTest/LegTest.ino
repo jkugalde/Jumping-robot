@@ -1,11 +1,11 @@
 #include "LegMotor.h"
 #include "RobotLeg.h"
 
-int pinsA[3] = {5,3,A3};
-int pinsB[3] = {6,9,A4};
+int pinsA[4] = {2,4,3,A3};
+int pinsB[4] = {8,7,6,A4};
 
-float kA[3] = {50,0.2,0};
-float kB[3] = {50,0.2,0};
+float kA[3] = {1,0.2,0};
+float kB[3] = {1,0.2,0};
 
 int refsA[2] = {130,620};
 int refsB[2] = {50,500};

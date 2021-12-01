@@ -13,7 +13,7 @@ class LegMotor
     void setk(float k [3]);
     void turnoff();
     int readPot();
-    void assignpins(int pins [3]);
+    void assignpins(int pins [4]);
     void act();
     void goTo(int target, int maxvel);
     void setminmax(int min, int max);
@@ -28,6 +28,7 @@ class LegMotor
       int _stateA;
       int _pinB;
       int _stateB;
+      int _pinpwm;
       int _pinpot;
       float _Kp;
       float _Kd;
@@ -41,6 +42,7 @@ class LegMotor
       int _ref_0;
       int _ref_90;
       float _kgrad;
+      int _power;
 
 };
 

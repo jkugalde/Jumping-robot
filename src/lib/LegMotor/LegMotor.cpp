@@ -13,15 +13,18 @@ _preverror=0;
 _minpos=0;
 _maxpos=1023;
 _ref_0=0;
+_power=0;
 
 }
 
-void LegMotor::assignpins(int pins [3]){
+void LegMotor::assignpins(int pins [4]){
   _pinA=pins[0];
   _pinB=pins[1];
-  _pinpot=pins[2];
+  _pinpwm=pins[2];
+  _pinpot=pins[3];
   pinMode(_pinA,OUTPUT);
   pinMode(_pinB,OUTPUT);
+  pinMode(_pinpwm,OUTPUT);
   pinMode(_pinpot,INPUT);
 }
 
@@ -41,8 +44,9 @@ int LegMotor::readPot(){
 }
 
 void LegMotor::act(){
-	analogWrite(_pinA,_stateA);
-	analogWrite(_pinB,_stateB);
+	digitalWrite(_pinA,_stateA);
+	digitalWrite(_pinB,_stateB);
+  analogWrite(_pinpwm,_power);
 }
 
 void LegMotor::setk(float k [3]){
@@ -111,12 +115,14 @@ void LegMotor::goTo(int target, int maxvel){
 
   
   if(pow>0){
-    _stateA=pow;
+    _stateA=1;
     _stateB=0;
+    _power=pow;
   }
   else{  
     _stateA=0;
-    _stateB=-pow;
+    _stateB=1;
+    _power=-pow;
   }
 
   act();

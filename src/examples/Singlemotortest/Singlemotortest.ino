@@ -1,10 +1,10 @@
 #include "LegMotor.h"
 
-int pins[3] = {5,3,A3};
-float k [3] = {1.5,0.2,0};
+int pins[4] = {8,7,6,A4};
+float k [3] = {1,0.2,0};
 int refsA[2] = {130,620};
 
-int newpos=0;
+int newpos=45;
 int count=50;
 boolean go = false;
 unsigned long timer=0;
@@ -22,17 +22,24 @@ void setup() {
   LM1.setKgrad();
   timer=millis();
 
+
 }
 
 void loop() {
 
-if(millis()-timer>=sampler){
-  newpos=newpos+count;
-  timer=millis();
-  if(newpos>50 || newpos<=0){
-  count=-count;
+if(Serial.available()>0){
+  newpos=Serial.parseInt();
+  Serial.flush();
+ Serial.println(newpos);
 }
-}
+
+//if(millis()-timer>=sampler){
+//  newpos=newpos+count;
+//  timer=millis();
+//  if(newpos>50 || newpos<=0){
+//  count=-count;
+//}
+//}
 
 
  LM1.goTo(newpos,255);

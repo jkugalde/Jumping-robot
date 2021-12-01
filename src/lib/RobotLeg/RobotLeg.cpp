@@ -17,7 +17,7 @@ RobotLeg::~RobotLeg()
     //dtor
 }
 
-void RobotLeg::motorpins(int pinsA [3], int pinsB [3]){
+void RobotLeg::motorpins(int pinsA [4], int pinsB [4]){
     _M1.assignpins(pinsA);
     _M2.assignpins(pinsB);
 }

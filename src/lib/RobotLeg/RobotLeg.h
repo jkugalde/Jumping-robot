@@ -11,7 +11,7 @@ class RobotLeg
     public:
     RobotLeg();
     ~RobotLeg();
-    void motorpins(int pinsA [3], int pinsB [3]);
+    void motorpins(int pinsA [4], int pinsB [4]);
     void goTo(int x, int y);
     void calibrateminmax();
     void setrefs(int refA[2], int refB[2]);
