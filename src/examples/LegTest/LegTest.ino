@@ -7,8 +7,8 @@ int pinsB[4] = {8,7,6,A4};
 float kA[3] = {1,0.2,0};
 float kB[3] = {1,0.2,0};
 
-int refsA[2] = {130,620};
-int refsB[2] = {50,500};
+int refsA[2] = {175,651};
+int refsB[2] = {113,527};
 
 RobotLeg RL1;
 
@@ -20,7 +20,7 @@ unsigned long sampler=500;
 
 void setup() {
 
-  Serial.begin(9600);
+  Serial.begin(115200);
   RL1.motorpins(pinsA,pinsB);
   RL1.setks(kA,kB);
   RL1.setrefs(refsA,refsB);

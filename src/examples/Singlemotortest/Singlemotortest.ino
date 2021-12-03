@@ -1,7 +1,7 @@
 #include "LegMotor.h"
 
 int pins[4] = {8,7,6,A4};
-float k [3] = {1,0.2,0};
+float k [3] = {0.5,0.2,0};
 int refsA[2] = {130,620};
 
 int newpos=45;

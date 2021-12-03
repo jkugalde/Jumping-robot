@@ -9,7 +9,7 @@ int minvalB=1023;
 
 RobotLeg::RobotLeg()
 {
-
+_maxangle=85;
 }
 
 RobotLeg::~RobotLeg()

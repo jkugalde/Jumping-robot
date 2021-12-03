@@ -20,6 +20,7 @@ class RobotLeg
     private:
       LegMotor _M1;
       LegMotor _M2;
+      int _maxangle;
 
 };
 
