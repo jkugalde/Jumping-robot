@@ -1,6 +1,8 @@
 #include "LegMotor.h"
 #include "RobotLeg.h"
 
+//this program is a sweep
+
 int pinsA[4] = {2,4,3,A3};
 int pinsB[4] = {8,7,6,A4};
 
@@ -20,7 +22,6 @@ unsigned long sampler=500;
 
 void setup() {
 
-  Serial.begin(115200);
   RL1.motorpins(pinsA,pinsB);
   RL1.setks(kA,kB);
   RL1.setrefs(refsA,refsB);

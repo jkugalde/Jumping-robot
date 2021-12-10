@@ -2,11 +2,6 @@
 #include <Arduino.h>
 #include <LegMotor.h>
 
-int maxvalA=0;
-int minvalA=1023;
-int maxvalB=0;
-int minvalB=1023;
-
 RobotLeg::RobotLeg()
 {
 _maxangle=85;
@@ -43,29 +38,6 @@ int RobotLeg::getPos(int i){
     }
 }
 
-void RobotLeg::calibrateminmax(){
-
-    int newval=_M1.readPot();
-
-    if(newval<minvalA){
-        minvalA=newval;   
-    }
-    if(newval>maxvalA){
-        maxvalA=newval;
-    }
-    _M1.setminmax(minvalA,maxvalA);
-
-    newval=_M2.readPot();
-
-    if(newval<minvalB){
-        minvalB=newval;   
-    }
-    if(newval>maxvalA){
-        maxvalB=newval;
-    }
-    _M2.setminmax(minvalB,maxvalB);
-
-}
 
 void RobotLeg::setrefs(int refA[2],int refB[2]){
     _M1.setrefs(refA);

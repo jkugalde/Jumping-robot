@@ -11,15 +11,10 @@ class LegMotor
     LegMotor();
     ~LegMotor();
     void setk(float k [3]);
-    void turnoff();
     int readPot();
     void assignpins(int pins [4]);
     void act();
     void goTo(int target, int maxvel);
-    void setminmax(int min, int max);
-    int limits(int target);
-    int setref0();
-    int setref90();
     void setrefs(int refs [2]);
     float setKgrad();
     private:
@@ -33,16 +28,13 @@ class LegMotor
       float _Kp;
       float _Kd;
       float _Ki;
-      bool _ready;
-      int _thI;
       int _preverror;
       int _Ierror;
-      int _minpos;
-      int _maxpos;
       int _ref_0;
       int _ref_90;
       float _kgrad;
       int _power;
+      float _thI;
 
 };
 

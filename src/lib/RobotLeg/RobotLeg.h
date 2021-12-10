@@ -13,7 +13,6 @@ class RobotLeg
     ~RobotLeg();
     void motorpins(int pinsA [4], int pinsB [4]);
     void goTo(int x, int y);
-    void calibrateminmax();
     void setrefs(int refA[2], int refB[2]);
     void setks(float kA [3], float kB [3]);
     int getPos(int i);
