@@ -20,7 +20,7 @@ Currently, i have made some Arduino libraries to play with the leg actuator, and
 
 This is the commercial parts list to make a working leg, the rest is 3d printing. 
 
- ITEM              | Cantidad
+ ITEM              | QTY
  ---------------------------   | ------------
  Pololu N20 Brushed DC Motor 6V HP 1:10 GR| 2
  Angle sensor CJMCU-103 | 2
@@ -36,9 +36,23 @@ This is the commercial parts list to make a working leg, the rest is 3d printing
 
  You also need a power source capable of providing at least 7V at 3A, like a 2S LiPo battery. I'm using that motor driver to later use the current measurement, but you can use a L298N if you want to do only position control. I did not include the 5 mm aluminium spacer, as you may use another thing in your jumping experimental setup.
 
+ This is the printed parts list
+
+  ITEM              | QTY
+ ---------------------------   | ------------
+ Motor case | 2
+ Motor joint link | 2
+ Adapter   | 2
+ Link A | 1
+ Link B | 1
+ Rubber support | 2
+ Middle joint | 1
+
+
 ## Further Work
 
 - To use a Teensy instead of an Arduino.
 - Characterize the DC motor to generate a dynamic control using torque and current.
 - Make a PCB to control 8 motors.
 - Make a tetrapod.
+- To write assembly instructions
