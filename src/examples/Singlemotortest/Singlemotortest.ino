@@ -1,15 +1,14 @@
 #include "LegMotor.h"
 
-int pins[4] = {8,7,6,A4};
-float k [3] = {0.5,0.2,0};
-int refsA[2] = {130,620};
+int pins[3] = {8,9,A1};
+float k [3] = {0.7,0.4,0};
+int refsA[2] = {540,800};
 
 int newpos; //degrees
 unsigned long timer=0;
 unsigned long sampler=200;
 
 LegMotor LM1;
-
 
 void setup() {
   
@@ -31,8 +30,6 @@ if(Serial.available()>0){
  Serial.println(newpos);
 }
 
-
 LM1.goTo(newpos,255);
-
   
 }

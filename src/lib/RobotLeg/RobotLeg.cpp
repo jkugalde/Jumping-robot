@@ -12,7 +12,7 @@ RobotLeg::~RobotLeg()
     //dtor
 }
 
-void RobotLeg::motorpins(int pinsA [4], int pinsB [4]){
+void RobotLeg::motorpins(int pinsA [3], int pinsB [3]){
     _M1.assignpins(pinsA);
     _M2.assignpins(pinsB);
 }
@@ -31,10 +31,10 @@ void RobotLeg::goTo(int x, int y){
 int RobotLeg::getPos(int i){
     
     if(i==1){
-        return _M1.readPot();
+        return _M1.readSens();
     }
     else{
-        return _M2.readPot();
+        return _M2.readSens();
     }
 }
 

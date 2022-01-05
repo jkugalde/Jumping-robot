@@ -11,20 +11,18 @@ class LegMotor
     LegMotor();
     ~LegMotor();
     void setk(float k [3]);
-    int readPot();
-    void assignpins(int pins [4]);
+    int readSens();
+    void assignpins(int pins [3]);
     void act();
     void goTo(int target, int maxvel);
     void setrefs(int refs [2]);
     float setKgrad();
     private:
-      int _potval;
-      int _pinA;
-      int _stateA;
-      int _pinB;
-      int _stateB;
+      int _sensval;
+      int _pindir;
+      int _dir;
       int _pinpwm;
-      int _pinpot;
+      int _pinsens;
       float _Kp;
       float _Kd;
       float _Ki;

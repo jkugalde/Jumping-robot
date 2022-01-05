@@ -3,22 +3,23 @@
 
 //this program is a sweep
 
-int pinsA[4] = {2,4,3,A3};
-int pinsB[4] = {8,7,6,A4};
+int pinsA[3] = {2,3,A0};
+int pinsB[3] = {8,9,A1};
 
-float kA[3] = {1,0.2,0};
-float kB[3] = {1,0.2,0};
+float kA[3] = {2,0.2,0};
+float kB[3] = {2,0.2,0};
 
-int refsA[2] = {175,651};
-int refsB[2] = {113,527};
+int refsA[2] = {510,790};
+int refsB[2] = {510,790};
+
+int pos[2] = {0,85};
 
 RobotLeg RL1;
 
 int newpos=0;
-int count=85;
-boolean go = false;
+boolean count=0;
 unsigned long timer=0;
-unsigned long sampler=500;
+unsigned long times[2]={300,150};
 
 void setup() {
 
@@ -30,15 +31,12 @@ void setup() {
 
 void loop() {
 
-if(millis()-timer>=sampler){
-  newpos=newpos+count;
+if(millis()-timer>=times[count]){
+  newpos=pos[count];
   timer=millis();
-  if(newpos>=85 || newpos<=0){
-  count=-count;
-}
+  count=!count;
 }
 
 RL1.goTo(newpos,newpos);
-
   
 }
