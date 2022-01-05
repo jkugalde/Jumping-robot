@@ -48,6 +48,10 @@ This is the commercial parts list to make a working leg, the rest is 3d printing
  Rubber support | 2
  Middle joint | 1
 
+## First experiments
+
+With the 3000 RPM (1:10 gearbox) motor, the robot barely jumps at a voltage (9V) higher than the nominal (6V), which can be damaging it. A motor with at least twice the torque should be enough to have a better performance without losing too much speed, but further calculations are needed.
+
 
 ## Further Work
 
