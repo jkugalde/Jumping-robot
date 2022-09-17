@@ -1,5 +1,7 @@
 # Hardware
 
+The parts are stored [HERE](https://grabcad.com/library/jumping-robot-leg-1).
+
 A 2x3 pin header male connector is located on top of the module, connected to the motor and sensor pins. There is also an adapter piece between the motor shaft and the angle sensor, as the shaft is 3 mm and the angle sensor is for 4 mm shafts.
 
 The middle joint is designed in this case to hold a 5 mm DI spacer to act as a bushing in the jumping setup, which is a fixed pole.
