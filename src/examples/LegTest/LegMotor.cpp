@@ -9,6 +9,7 @@ _Ki=0;
 _preverror=0;
 _power=0;
 _thI=0;
+_inv=false;
 
 }
 
@@ -29,6 +30,12 @@ void LegMotor::assignpins(int pins [4]){
 LegMotor::~LegMotor()
 {
     //dtor
+}
+
+void LegMotor::invdir(bool dinv){
+
+_inv=dinv;
+
 }
 
 int LegMotor::readSens(){ //read the analog value of the sensor
@@ -76,10 +83,13 @@ void LegMotor::setrefs(int refs[2]){
 void LegMotor::goTo(int target, int maxvel){
 
   target=int(_kgrad*target)+_ref_0;
+  //Serial.print("Position: ");
   int pos = readSens();
+  //Serial.print(pos);
   int error = target-pos;
+  //Serial.print("  ");
+  //Serial.println("error: ");
   int Derror = error-_preverror;
-
   int Ierror=Ierror+error; 
 
   if(abs(error)>_thI){
@@ -87,16 +97,17 @@ void LegMotor::goTo(int target, int maxvel){
   }
   
   int pow=int(_Kp*error)-int(_Kd*Derror)+int(_Ki*Ierror);
+
   _preverror=error;
   
   pow=constrain(pow,-maxvel,maxvel);
   
   if(pow>0){ //direction
-    _dir=1;
+    _dir=1+-1*_inv;
     _power=pow;
   }
   else{  
-    _dir=0;
+    _dir=0+_inv;
     _power=-pow;
   }
 

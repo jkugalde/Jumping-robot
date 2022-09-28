@@ -19,6 +19,7 @@ class LegMotor
     void setrefs(int refs [2]); //refs for 90 and 0 degrees
     void turnoff(); //sleep
     float setKgrad();
+    void invdir(bool dinv);
 
     private:
 
@@ -38,6 +39,7 @@ class LegMotor
       float _kgrad;
       int _power;
       float _thI;
+      bool _inv;
 
 };
 
