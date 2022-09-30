@@ -1,5 +1,5 @@
 #include "RobotLeg.h"
-#include "LegMotor.h"
+#include "N20Servo.h"
 
 RobotLeg::RobotLeg(float lengths [5])
 {

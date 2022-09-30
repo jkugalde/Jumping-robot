@@ -1,6 +1,6 @@
-#include "LegMotor.h"
+#include "N20Servo.h"
 
-LegMotor::LegMotor()
+N20Servo::N20Servo()
 {
 
 _Kp=0; //pid constants and variables initialization
@@ -13,7 +13,7 @@ _inv=false;
 
 }
 
-void LegMotor::assignpins(int pins [4]){
+void N20Servo::assignpins(int pins [4]){
 
   _pindir=pins[0];
   _pinpwm=pins[1];
@@ -27,31 +27,31 @@ void LegMotor::assignpins(int pins [4]){
 
 }
 
-LegMotor::~LegMotor()
+N20Servo::~N20Servo()
 {
     //dtor
 }
 
-void LegMotor::invdir(bool dinv){
+void N20Servo::invdir(bool dinv){
 
 _inv=dinv;
 
 }
 
-int LegMotor::readSens(){ //read the analog value of the sensor
+int N20Servo::readSens(){ //read the analog value of the sensor
 
 	_sensval=analogRead(_pinsens);
 	return _sensval;
 
 }
 
-void LegMotor::turnoff(){
+void N20Servo::turnoff(){
 
 digitalWrite(_pinslp,LOW);
 
 }
 
-void LegMotor::act(){
+void N20Servo::act(){
 
   digitalWrite(_pinslp,HIGH);
 	digitalWrite(_pindir,_dir);
@@ -59,7 +59,7 @@ void LegMotor::act(){
 
 }
 
-void LegMotor::setk(float k [3]){ //assign pid constants
+void N20Servo::setk(float k [3]){ //assign pid constants
 
 	_Kp=k[0];
   _Kd=k[1];
@@ -67,20 +67,20 @@ void LegMotor::setk(float k [3]){ //assign pid constants
   
 }
 
-float LegMotor::setKgrad(){ //transformation constant from degrees to values.
+float N20Servo::setKgrad(){ //transformation constant from degrees to values.
 
   _kgrad=float((_ref_90-_ref_0)/90.0);
   return _kgrad;
 
 }
 
-void LegMotor::setrefs(int refs[2]){ 
+void N20Servo::setrefs(int refs[2]){ 
   _ref_0=refs[0];
   _ref_90=refs[1];
   setKgrad();
 }
 
-void LegMotor::goTo(int target, int maxvel){
+void N20Servo::goTo(int target, int maxvel){
 
   target=int(_kgrad*target)+_ref_0;
   //Serial.print("Position: ");

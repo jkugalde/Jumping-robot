@@ -1,16 +1,16 @@
-#ifndef LegMotor_h
-#define LegMotor_h
+#ifndef N20Servo_h
+#define N20Servo_h
 
 #include "Arduino.h"
 
 
-class LegMotor
+class N20Servo
 {
 
     public:
 
-    LegMotor();
-    ~LegMotor();
+    N20Servo();
+    ~N20Servo();
     void setk(float k [3]);
     int readSens(); //reads the sensor
     void assignpins(int pins [4]); //setup pins
@@ -43,4 +43,4 @@ class LegMotor
 
 };
 
-#endif //LegMotor_H
+#endif //N20Servo_H

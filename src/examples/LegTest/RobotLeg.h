@@ -1,7 +1,7 @@
 #ifndef RobotLeg_h
 #define RobotLeg_h
 
-#include "LegMotor.h"
+#include "N20Servo.h"
 
 class RobotLeg
 {
@@ -19,8 +19,8 @@ class RobotLeg
     void dirs(bool d1, bool d2);
     int getPos(int i);
     private:
-      LegMotor _M1;
-      LegMotor _M2;
+      N20Servo _M1;
+      N20Servo _M2;
       float _x;
       float _y;
       float _q1;

@@ -21,11 +21,11 @@ int count=0; //index
 int cual = 0;
 const int nmoves = 2; //quantity of preprogrammed moves
 
-const int q1[nmoves]={0,45}; // pre programmed moves
+const int q1[nmoves]={140,90}; // pre programmed moves
 //const int q2[nmoves]={74,72,70,60,50,35,32,30,32,50,60,70,72,74};
 
 unsigned long timer = 0;
-unsigned long dt = 500; //time between each movement
+unsigned long dt = 100; //time between each movement
 
 void setup() {
 
@@ -44,34 +44,30 @@ delay(2000); //wait
 
 void loop() {
 
-// if(millis()-timer>=dt){  //this sweeps the arrays
+if(millis()-timer>=dt){  //this sweeps the arrays
 
-//   newpos1=q1[count];
-//   newpos2=newpos1;
-//   count=count+1;
-//   if(count==nmoves){
-//   count=0;
-//   }
-//   timer=millis();
+  newpos1=q1[count];
+  newpos2=180-newpos1;
+  count=count+1;
+  if(count==nmoves){
+  count=0;
+  }
+  timer=millis();
+}
+
+// if(Serial.available()>0){
+// if(cual==0){
+
+// newpos1=Serial.parseInt();
+// cual=cual+1;
+// }
+// else{
+// newpos2=Serial.parseInt();
+// RL1.ik(newpos1,newpos2,255);
+// cual=0;  
+// }
 // }
 
-if(Serial.available()>0){
-
-if(cual==0){
-
-newpos1=Serial.parseInt();
-cual=cual+1;
-}
-
-else{
-newpos2=Serial.parseInt();
-RL1.ik(newpos1,newpos2,255);
-cual=0;  
-}
-
-
-}
-
-//RL1.goTo(newpos1,newpos2,leg_pwm);
+RL1.goTo(newpos1,newpos2,leg_pwm);
   
 }
