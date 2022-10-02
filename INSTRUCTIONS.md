@@ -4,7 +4,7 @@ The parts are stored [HERE](https://grabcad.com/library/jumping-robot-leg-1).
 
 The middle joint is designed in this case to hold a 5 mm DI spacer to act as a bushing in the jumping setup, which is a fixed pole.
 
-<img src="/imgs/module.png" width="350">
+<img src="/imgs/isocad.png" width="350">
 
 ## Commercial parts
 
@@ -12,7 +12,6 @@ This is the commercial parts list to make a working leg (2 modules), the rest is
 
  ITEM              | QTY
  ---------------------------   | ------------
-
  M3x18 socket bolt | 1
  M3x12 socket bolt | 2
  M3x6 socket bolt | 4

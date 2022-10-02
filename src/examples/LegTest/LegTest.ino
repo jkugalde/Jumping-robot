@@ -25,7 +25,7 @@ const int q1[nmoves]={140,90}; // pre programmed moves
 //const int q2[nmoves]={74,72,70,60,50,35,32,30,32,50,60,70,72,74};
 
 unsigned long timer = 0;
-unsigned long dt = 100; //time between each movement
+unsigned long dt = 400; //time between each movement
 
 void setup() {
 

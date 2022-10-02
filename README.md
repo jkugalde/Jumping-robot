@@ -1,6 +1,6 @@
 # Jumping Robot
 
-I used 2 N20 Servo Modules to make a jumping five bar parallel robot. 
+I used 2 [N20 Servo Modules](https://github.com/jkugalde/N20-Servo-Module) to make a jumping five bar parallel robot. 
 
 ## Summary
 
